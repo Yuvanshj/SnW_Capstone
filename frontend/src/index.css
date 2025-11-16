@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+
+html, body, #root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+body{
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.full-viewport-canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.tomodachi-title {
+  font-family: 'Unbounded', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-weight: 300;
+  line-height: 0.95;
+  text-align: center;
+  font-size: 6rem
+}
+
+.tomodachi-sub {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 3.2vw, 1.25rem);
+  color: rgba(255,255,255,0.50);
+  text-align: center;
+}
+
+.hero-backdrop {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(158,0,255,0.18) 0%, rgba(46,185,223,0.08) 30%, rgba(0,0,0,0) 60%);
+  filter: blur(40px);
+  opacity: 0.9;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.main-heading {
+  line-height: 0.9;
+}
+
+.btn:hover{
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
