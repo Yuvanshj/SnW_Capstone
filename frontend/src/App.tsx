@@ -8,7 +8,7 @@ import Explore from './Pages/Explore'
 import Chat from './Pages/Chat'
 import Notifications from './Pages/Notifications'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Sidebar from './components/blocks/Sidebar'
+
 
 function App() {
   return (

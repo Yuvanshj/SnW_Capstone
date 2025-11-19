@@ -1,6 +1,9 @@
 import Hoverbtn from "../ui/Hoverbtn.tsx"
 import { BellDot, Compass, Home as HomeIcon, MessageCircleHeart, Settings } from "lucide-react"
 import Profilecomp from "../Profilecomp.tsx"
+import { Link } from "react-router"
+
+
 
 // type Props = {}
 
@@ -10,16 +13,24 @@ const Sidebar = () => {
 
                 <div className="up flex flex-col items-start gap-5 mt-20 ml-2 ">
                     <div>
-                        <Hoverbtn icon={<HomeIcon />}> Home </Hoverbtn>
+                        <Link to={"/app"}>
+                            <Hoverbtn icon={<HomeIcon />}> Home </Hoverbtn>
+                        </Link>
                     </div>
                     <div>
-                        <Hoverbtn icon={<Compass />}> Explore </Hoverbtn>
+                        <Link to={"/app/explore"}>
+                            <Hoverbtn icon={<Compass />}> Explore </Hoverbtn>
+                        </Link>
                     </div>
                     <div>
-                        <Hoverbtn icon={<MessageCircleHeart />}> Chat </Hoverbtn>
+                        <Link to={"/app/chat"}>
+                            <Hoverbtn icon={<MessageCircleHeart />}> Chat </Hoverbtn>
+                        </Link>
                     </div>
                     <div>
-                        <Hoverbtn icon={<BellDot />}> Notifications </Hoverbtn>
+                        <Link to={"/app/notifications"}>
+                            <Hoverbtn icon={<BellDot />}> Notifications </Hoverbtn>
+                        </Link>
                     </div>
                 </div>
                 <div className="down mb-2 ml-2 flex flex-col items-start gap-5">
@@ -34,7 +45,9 @@ const Sidebar = () => {
                                 </div>
                             </div>
                         </Hoverbtn>
-                        <Hoverbtn icon={<Settings />}> Settings </Hoverbtn>
+
+                            <Hoverbtn icon={<Settings />}> Settings </Hoverbtn>
+
                 </div>
 
             </div>
