@@ -1,5 +1,5 @@
 import Hoverbtn from "../ui/Hoverbtn.tsx"
-import { BellDot, Compass, Home as HomeIcon, MessageCircleHeart, Settings } from "lucide-react"
+import { BellDot, Compass, Home as HomeIcon, MessageCircleHeart, PlusCircleIcon, Settings } from "lucide-react"
 import Profilecomp from "../Profilecomp.tsx"
 import { Link } from "react-router"
 
@@ -31,6 +31,9 @@ const Sidebar = () => {
                         <Link to={"/app/notifications"}>
                             <Hoverbtn icon={<BellDot />}> Notifications </Hoverbtn>
                         </Link>
+                    </div>
+                    <div>
+                        <Hoverbtn icon={<PlusCircleIcon />}> Post </Hoverbtn>
                     </div>
                 </div>
                 <div className="down mb-2 ml-2 flex flex-col items-start gap-5">
