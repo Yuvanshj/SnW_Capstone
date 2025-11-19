@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { MoveRight, LogInIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
+import { Link } from "react-router";
+
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
@@ -70,12 +72,19 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Button size="lg" className="gap-4 btn" variant="outline">
-              Explore Now <LogInIcon className="w-4 h-4" />
-            </Button>
-            <Button size="lg" className="gap-4 btn" variant={"link"}>
-              Sign up here <MoveRight className="w-4 h-4" />
-            </Button>
+
+            <Link to={"/login"}>
+              <Button size="lg" className="gap-4 btn" variant="outline">
+                Explore Now <LogInIcon className="w-4 h-4" />
+              </Button>
+            </Link>
+
+            <Link to={"/signup"}>
+              <Button size="lg" className="gap-4 btn" variant={"link"}>
+                Sign up here <MoveRight className="w-4 h-4" />
+              </Button>
+            </Link>
+
           </div>
         </div>
       </div>
