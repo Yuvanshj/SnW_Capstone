@@ -59,7 +59,7 @@ const Starfield: React.FC<StarfieldProps> = ({ count = 240, color = "#ffffff" })
   return (
     <canvas
       ref={canvasRef}
-      className="full-viewport-canvas"
+      className={`full-viewport-canvas pointer-events-none fixed top-0 left-0`}
       style={{ zIndex: -1 }}
       aria-hidden
     />

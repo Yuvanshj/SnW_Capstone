@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MoveRight, LogInIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
