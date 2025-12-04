@@ -5,7 +5,7 @@ import { Link } from "react-router"
 
 
 
-// type Props = {}
+
 
 const Sidebar = () => {
   return (

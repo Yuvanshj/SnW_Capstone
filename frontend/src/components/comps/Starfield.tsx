@@ -28,8 +28,8 @@ const Starfield: React.FC<StarfieldProps> = ({ count = 240, color = "#ffffff" })
       for (let i = 0; i < count; i++) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const r = Math.random() * 1.6 + 0.2; // small radius
-        const a = Math.random() * 0.85 + 0.1; // alpha
+        const r = Math.random() * 1.6 + 0.2;
+        const a = Math.random() * 0.85 + 0.1;
         ctx.beginPath();
         ctx.fillStyle = `rgba(${parseInt(color.slice(1, 3), 16)}, ${parseInt(
           color.slice(3, 5),
@@ -43,12 +43,12 @@ const Starfield: React.FC<StarfieldProps> = ({ count = 240, color = "#ffffff" })
     resize();
     window.addEventListener("resize", resize);
 
-    // A gentle re-draw every 30-45s to slightly change distribution (keeps static feel)
+
     const redrawInterval = window.setInterval(() => {
       draw();
     }, 35000 + Math.random() * 10000);
 
-    // no continuous animation needed for static dots; keep pointer-events off
+
     return () => {
       window.removeEventListener("resize", resize);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);

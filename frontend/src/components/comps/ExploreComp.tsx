@@ -2,11 +2,11 @@ import SphereImageGrid from "../ui/img-sphere";
 import type { ImageData as SphereImageData } from "../ui/img-sphere";
 
 
-// ==========================================
-// EASY CONFIGURATION - Edit these values to customize the component
-// ==========================================
 
-// Image data using project assets - duplicated to fill sphere better
+
+
+
+
 
 const BASE_IMAGES: Omit<SphereImageData, 'id'>[] = [
     {
@@ -83,7 +83,7 @@ const BASE_IMAGES: Omit<SphereImageData, 'id'>[] = [
   }
 ];
 
-// Generate more images by repeating the base set
+
 const IMAGES: SphereImageData[] = [];
 for (let i = 0; i < 60; i++) {
   const baseIndex = i % BASE_IMAGES.length;
@@ -95,7 +95,7 @@ for (let i = 0; i < 60; i++) {
   });
 }
 
-// Component configuration - easily adjustable
+
 interface SphereConfig {
   containerSize: number;
   sphereRadius: number;
@@ -110,16 +110,16 @@ interface SphereConfig {
 }
 
 const CONFIG: SphereConfig = {
-  containerSize: 720,          // Increased container size in pixels for a larger sphere
-  sphereRadius: 260,           // Larger sphere radius for more spread-out images
-  dragSensitivity: 0.9,        // Slightly more sensitive drag
-  momentumDecay: 0.96,         // How fast momentum fades (0.8 - 0.99)
-  maxRotationSpeed: 6,         // Maximum rotation speed (1 - 10)
-  baseImageScale: 0.18,        // Slightly larger images
-  hoverScale: 1.35,            // Hover scale multiplier for emphasis
-  perspective: 1200,           // CSS perspective value (500 - 2000)
-  autoRotate: true,            // Enable/disable auto rotation
-  autoRotateSpeed: 0.25        // Auto rotation speed (slightly faster)
+  containerSize: 720,
+  sphereRadius: 260,
+  dragSensitivity: 0.9,
+  momentumDecay: 0.96,
+  maxRotationSpeed: 6,
+  baseImageScale: 0.18,
+  hoverScale: 1.35,
+  perspective: 1200,
+  autoRotate: true,
+  autoRotateSpeed: 0.25
 };
 
 export default function ExploreComp() {

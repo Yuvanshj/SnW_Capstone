@@ -104,12 +104,5 @@ html, body {
   --color-sidebar-ring: var(----sidebar-ring);
 }
 
-/* @layer base {
-  * {
-    
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
+
 

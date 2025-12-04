@@ -3,18 +3,14 @@ import Starfield from "../../components/comps/Starfield"
 import SignupForm from "../../components/SignupForm"
 import { Button } from "../../components/ui/button"
 import { Link } from "react-router-dom";
-// type Props = {} props: Props
+
 
 const Signup = () => {
   return (
     <>
     <Starfield />
     <ShootingStarComp />
-  {/* <div>
-    <Button variant="link" className="absolute lg:left-32">
-      Back to Home page &rarr;
-    </Button>
-  </div> */}
+  
     <div className="flex h-screen w-full flex-col justify-center items-center px-4 relative overflow-hidden">
     <Link to={"/"}>Back to Home</Link>
       <div className="w-full max-w-md relative ">

@@ -2,7 +2,7 @@ import ShootingStarComp from "../../components/comps/ShootingStarComp"
 import Starfield from "../../components/comps/Starfield"
 import LoginForm from "../../components/LoginForm"
 import { Link } from "react-router-dom";
-// type Props = {} props: Props
+
 
 const LoginPage = () => {
   return (

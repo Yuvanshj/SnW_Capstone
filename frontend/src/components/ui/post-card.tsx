@@ -49,7 +49,7 @@ export const PostCard: React.FC<PostProps> = ({
 
   return (
     <div className={`m-4 w-full rounded-4xl bg-background border border-primary/10 shadow-2xl/10 p-4 ${className}`}>
-      {/* Header */}
+      
       <div className="flex items-center justify-between gap-4 card-header">
         <div className="flex items-center gap-4">
           <img
@@ -72,7 +72,7 @@ export const PostCard: React.FC<PostProps> = ({
         </div>
       </div>
 
-      {/* Content */}
+      
       <div className="mt-4 flex flex-col gap-6">
         <p className="whitespace-pre-wrap">{text}</p>
         {imageSrc && (
@@ -88,7 +88,7 @@ export const PostCard: React.FC<PostProps> = ({
         )}
       </div>
 
-      {/* Actions */}
+      
       <div className="mt-4 flex justify-evenly gap-2">
         <button
           onClick={handleLike}

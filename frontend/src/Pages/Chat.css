@@ -13,7 +13,7 @@ html,body,#root{height:100%;}
 
 .conversations-list{
     width: 300px;
-    /* background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); */
+    
     padding: 12px;
     box-sizing: border-box;
     display: flex;

@@ -20,11 +20,7 @@ export default function MainLayout() {
               <Outlet />
             </main>
 
-            {/* <aside className="trending col-span-3">
-              <div className="fixed top-0 right-0 h-screen overflow-auto p-4">
-                Trending
-              </div>
-            </aside> */}
+            
         </div>
     </>
   )
