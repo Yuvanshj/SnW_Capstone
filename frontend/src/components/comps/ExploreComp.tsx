@@ -110,26 +110,23 @@ interface SphereConfig {
 }
 
 const CONFIG: SphereConfig = {
-  containerSize: 600,          // Container size in pixels
-  sphereRadius: 200,           // Virtual sphere radius (increased for better spacing)
-  dragSensitivity: 0.8,        // Mouse drag sensitivity (0.1 - 2.0)
+  containerSize: 720,          // Increased container size in pixels for a larger sphere
+  sphereRadius: 260,           // Larger sphere radius for more spread-out images
+  dragSensitivity: 0.9,        // Slightly more sensitive drag
   momentumDecay: 0.96,         // How fast momentum fades (0.8 - 0.99)
   maxRotationSpeed: 6,         // Maximum rotation speed (1 - 10)
-  baseImageScale: 0.15,        // Base image size (reduced to minimize overlap)
-  hoverScale: 1.3,             // Hover scale multiplier (1.0 - 2.0)
-  perspective: 1000,           // CSS perspective value (500 - 2000)
+  baseImageScale: 0.18,        // Slightly larger images
+  hoverScale: 1.35,            // Hover scale multiplier for emphasis
+  perspective: 1200,           // CSS perspective value (500 - 2000)
   autoRotate: true,            // Enable/disable auto rotation
-  autoRotateSpeed: 0.2         // Auto rotation speed (0.1 - 2.0, higher = faster)
+  autoRotateSpeed: 0.25        // Auto rotation speed (slightly faster)
 };
 
 export default function ExploreComp() {
   return (
-    <div className="sticky top-24 mt-20 flex justify-center items-start scale-150">
-      <div className="p-6">
-        <SphereImageGrid
-          images={IMAGES}
-          {...CONFIG}
-        />
+    <div className="explorecomp-wrapper">
+      <div className="explorecomp-inner">
+        <SphereImageGrid images={IMAGES} {...CONFIG} />
       </div>
     </div>
   );

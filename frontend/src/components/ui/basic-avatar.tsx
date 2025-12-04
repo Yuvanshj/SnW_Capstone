@@ -1,9 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from './avatar'
 
-const AvatarDemo = () => {
+const AvatarDemo = ({ src }: { src: string }) => {
   return (
     <Avatar>
-      <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Hallie Richards' />
+      <AvatarImage src={src} />
       <AvatarFallback className='text-xs'>HR</AvatarFallback>
     </Avatar>
   )

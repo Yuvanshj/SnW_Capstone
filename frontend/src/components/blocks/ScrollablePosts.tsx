@@ -1,10 +1,16 @@
 import { PostCard } from "../ui/post-card";
 
 interface ScrollablePostsProps {
-  posts: {
+  posts: Array<{
     id: string | number;
-    content: string;
-  }[];
+    authorName?: string;
+    authorHandle?: string;
+    authorAvatar?: string;
+    time?: string;
+    text?: string;
+    imageSrc?: string;
+    imageAlt?: string;
+  }>;
 }
 
 export default function ScrollablePosts({ posts }: ScrollablePostsProps) {
@@ -14,7 +20,7 @@ export default function ScrollablePosts({ posts }: ScrollablePostsProps) {
         <p className="text-gray-400 text-center">No posts yet...</p>
       ) : (
         posts.map((post) => (
-            <PostCard key={post.id} />
+          <PostCard key={post.id} {...post} />
         ))
       )}
     </div>

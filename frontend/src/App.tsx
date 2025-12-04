@@ -1,4 +1,3 @@
-import React, { Suspense } from 'react'
 import Landing from './Pages/Landing'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import Signup from './Pages/Signup/SignupPage'
@@ -10,10 +9,10 @@ import Notifications from './Pages/Notifications'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 
+
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<LoginPage />} />
@@ -27,13 +26,10 @@ function App() {
             <Route path="chat" element={<Chat />} />
             <Route path="notifications" element={<Notifications />} />
           </Route>
-
-          {/* legacy /home -> redirect to /app */}
           <Route path="/home" element={<Navigate to="/app" replace />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </Suspense>
     </BrowserRouter>
   )
 }

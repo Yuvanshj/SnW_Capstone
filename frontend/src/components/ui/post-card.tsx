@@ -9,9 +9,35 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 
-export const PostCard: React.FC = () => {
-  const [liked, setLiked] = useState(false);
-  const [bookmarked, setBookmarked] = useState(false);
+interface PostProps {
+  id?: string | number;
+  authorName?: string;
+  authorHandle?: string;
+  authorAvatar?: string;
+  time?: string;
+  text?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  initialLiked?: boolean;
+  initialBookmarked?: boolean;
+  className?: string;
+}
+
+export const PostCard: React.FC<PostProps> = ({
+  id,
+  authorName = "HextaStudio",
+  authorHandle = "Tomodachi",
+  authorAvatar = "https://i.imgur.com/MUjzWdu.png",
+  time = "7h",
+  text = "– Gorgeous web components without any effort! ✨\n\n🚀 HextaStudio launched their new product HextaUI, a collection of beautiful web components.\n\n🥳 Check it out now!",
+  imageSrc = "https://i.imgur.com/zU3m0eC.png",
+  imageAlt = "HextaUI",
+  initialLiked = false,
+  initialBookmarked = false,
+  className = "",
+}) => {
+  const [liked, setLiked] = useState(initialLiked);
+  const [bookmarked, setBookmarked] = useState(initialBookmarked);
 
   const handleLike = () => {
     setLiked((prev) => !prev);
@@ -22,25 +48,24 @@ export const PostCard: React.FC = () => {
   };
 
   return (
-
-   <div className="m-4 max-w-[60rem] w-full rounded-4xl bg-background border border-primary/10 shadow-2xl/10 p-4">
+    <div className={`m-4 w-full rounded-4xl bg-background border border-primary/10 shadow-2xl/10 p-4 ${className}`}>
       {/* Header */}
       <div className="flex items-center justify-between gap-4 card-header">
         <div className="flex items-center gap-4">
           <img
-            src="https://i.imgur.com/MUjzWdu.png"
-            alt="HextaStudio"
-            width={35}
-            height={35}
+            src={authorAvatar}
+            alt={authorName}
+            width={40}
+            height={40}
             className="rounded-full"
           />
           <div>
             <h3 className="flex flex-col">
-              HextaStudio
+              {authorName}
               <span className="flex items-center gap-2 opacity-70 text-sm">
-                <small>@Tomodachi</small>
+                <small>@{authorHandle}</small>
                 <span>·</span>
-                <small>7h</small>
+                <small>{time}</small>
               </span>
             </h3>
           </div>
@@ -49,23 +74,18 @@ export const PostCard: React.FC = () => {
 
       {/* Content */}
       <div className="mt-4 flex flex-col gap-6">
-        <p className="whitespace-pre-wrap">
-           – Gorgeous web components without any effort! ✨
-          <br />
-          <br />
-          🚀 HextaStudio launched their new product HextaUI, a collection of
-          beautiful web components.
-          <br />
-          <br />
-          🥳 Check it out now!
-        </p>
-        <img
-          src="https://i.imgur.com/zU3m0eC.png"
-          alt="HextaUI"
-          width={1920}
-          height={1080}
-          className="max-w-full rounded-lg object-cover"
-        />
+        <p className="whitespace-pre-wrap">{text}</p>
+        {imageSrc && (
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            width={1920}
+            height={1080}
+            loading="lazy"
+            style={{ maxHeight: 400, width: "100%", objectFit: "cover" }}
+            className="max-w-full rounded-lg"
+          />
+        )}
       </div>
 
       {/* Actions */}
@@ -98,5 +118,5 @@ export const PostCard: React.FC = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
