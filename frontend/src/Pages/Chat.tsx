@@ -1,22 +1,12 @@
 
+import { useState, useRef, useEffect } from "react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import "./Chat.css";
 import AvatarDemo from "../components/ui/basic-avatar";
 
-type Message = {
-  id: string;
-  sender: "me" | "them";
-  text: string;
-  time?: string;
-};
-
-type Conversation = {
-  id: string;
-  name: string;
-  avatar?: string;
-  messages: Message[];
-};
+type Message = { id: string; sender: "me" | "them"; text: string; time?: string };
+type Conversation = { id: string; name: string; avatar?: string; messages: Message[] };
 
 const initialConversations: Conversation[] = [
   {
@@ -40,15 +30,50 @@ const initialConversations: Conversation[] = [
 
 
 const Chat = () => {
-  const conversations = initialConversations;
-  const selected = conversations[1];
+  const [convos, setConvos] = useState(initialConversations);
+  const [selId] = useState("2");
+  const selected = convos.find(c => c.id === selId) || convos[0];
+
+  const [text, setText] = useState("");
+  const msgsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = msgsRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [selected.messages.length]);
+
+  const send = () => {
+    const t = text.trim();
+    if (!t) return;
+
+    const msg: Message = {
+      id: Date.now().toString(),
+      sender: "me",
+      text: t,
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    };
+
+    setConvos(prev => prev.map(c => {
+      if (c.id !== selected.id) return c;
+      return { ...c, messages: [...c.messages, msg] };
+    }));
+
+    setText("");
+  };
+
+  const onKey = (e: any) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      send();
+    }
+  };
 
   return (
     <div className="chat-container">
       <aside className="conversations-list">
         <h1>Messages</h1>
 
-        {conversations.map((conversation) => (
+        {convos.map((conversation) => (
           <div className={`conversation ${conversation.id === selected.id ? "active" : ""}`} key={conversation.id}>
             <AvatarDemo src={conversation.avatar ?? ""} />
             <div>
@@ -70,7 +95,7 @@ const Chat = () => {
         </header>
 
         <div className="message-area">
-          <div className="messages">
+            <div className="messages" ref={msgsRef}>
             {selected.messages.map((m) => (
               <div key={m.id} className={`message ${m.sender === "me" ? "me" : "them"}`}>
                 <div className="bubble">{m.text}</div>
@@ -81,8 +106,13 @@ const Chat = () => {
         </div>
 
         <div className="chat-input">
-          <Input value={""} placeholder={`Message ${selected.name}`} />
-          <Button >Send</Button>
+          <Input
+            value={text}
+            placeholder={`Message ${selected.name}`}
+            onChange={(e: any) => setText(e.target.value)}
+            onKeyDown={onKey}
+          />
+          <Button onClick={send}>Send</Button>
         </div>
       </section>
     </div>
